@@ -1,0 +1,16 @@
+p,
+input:not(.date_input) {
+  display: inline-block;
+  width: 50px;
+}
+p.date_input {
+  display: inline-block;
+  width: 8rem;
+}
+input.date_input {
+  display: inline-block;
+  width: 13rem;
+}
+tr:nth-last-child(2) {
+  border: 1px black;
+}

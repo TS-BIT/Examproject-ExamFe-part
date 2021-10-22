@@ -1,0 +1,135 @@
+<table *ngIf="arrivals.length > 0; else noArrivalsWarning" class="table">
+  <thead>
+    <tr>
+      <th (click)="sortBy('id')">
+        Id
+        <i
+          class="fa fa-{{
+            sortField === 'id'
+              ? direction === 'up'
+                ? 'chevron-up'
+                : 'chevron-down'
+              : 'sort'
+          }}"
+        ></i>
+      </th>
+      <th (click)="sortBy('from_town')">
+        From town
+        <i
+          class="fa fa-{{
+            sortField === 'from_town'
+              ? direction === 'up'
+                ? 'chevron-up'
+                : 'chevron-down'
+              : 'sort'
+          }}"
+        ></i>
+      </th>
+      <th (click)="sortBy('airline')">
+        Airline
+        <i
+          class="fa fa-{{
+            sortField === 'airline'
+              ? direction === 'up'
+                ? 'chevron-up'
+                : 'chevron-down'
+              : 'sort'
+          }}"
+        ></i>
+      </th>
+      <th (click)="sortBy('is_late')">
+        Is late
+        <i
+          class="fa fa-{{
+            sortField === 'is_late'
+              ? direction === 'up'
+                ? 'chevron-up'
+                : 'chevron-down'
+              : 'sort'
+          }}"
+        ></i>
+      </th>
+      <th (click)="sortBy('arrival_time')">
+        Arrival Time
+        <i
+          class="fa fa-{{
+            sortField === 'arrival_time'
+              ? direction === 'up'
+                ? 'chevron-up'
+                : 'chevron-down'
+              : 'sort'
+          }}"
+        ></i>
+      </th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let arrival of arrivals">
+      <td>{{ arrival.id }}</td>
+      <td>{{ arrival.from_town }}</td>
+      <td>{{ arrival.airline }}</td>
+      <td>
+        <p>{{ arrival.is_late }}</p>
+        <input #newIs_late [(ngModel)]="cowsUpdateMap.get(cow.id).newIs_late" />
+      </td>
+      <td>
+        <p>{{ arrival.is_late }}</p>
+        <input
+          #todaysIs_lateCount
+          [(ngModel)]="arrivalsUpdateMap.get(arrival.id).todaysIs_lateCount"
+        />
+      </td>
+      <td>
+        <p class="date_input">{{ arrival.arrival_time | date }}</p>
+        <input
+          #newArrivalDate
+          class="date_input"
+          [ngModel]="arrivalsUpdateMap.get(arrival.id).newArrivalDate"
+          (ngModelChange)="arrivalsUpdateMap.get(arrival.id).newArrivalDate = $event"
+           pattern="\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z)"
+          />
+        <!-- pattern="\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z)" -->
+      </td>
+      <td>
+        <button (click)="onDelete(arrival.id)" class="btn btn-danger">
+          Delete
+        </button>
+        &nbsp;
+        <button (click)="onUpdate(arrival)" class="btn btn-warning">Update</button>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <input [(ngModel)]="newArrival.from_town" />
+      </td>
+      <td>
+        <p></p>
+        <input [(ngModel)]="newArrival.airline" />
+      </td>
+      <td>
+        <p></p>
+        <input [(ngModel)]="newArrival.is_late" />
+      </td>
+      <td>
+        <p class="date_input"></p>
+        <input
+          class="date_input"
+          [ngModel]="newArrival.arrival_time
+          | date: 'yyyy-MM-ddTHH:mm:ss.SSS' + 'Z'
+          "
+          (ngModelChange)="newArrival.arrival_time = $event"
+        />
+
+      </td>
+      <td>
+        <button (click)="onCreate()" class="btn btn-light">Create</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<ng-template #noArrivalsWarning>
+  <p class="alert alert-warning">No data!</p>
+</ng-template>
+
