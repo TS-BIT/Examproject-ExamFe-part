@@ -1,3 +1,69 @@
+p.alert.alert-danger {
+  display: block;
+  width: 100%;
+}
+
+.newArrival, .statistika, .filter {
+  padding: 20px;
+  padding-top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+
+h5 {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 0px;
+}
+
+p {
+  font-weight: 600;
+}
+
+.ng-invalid:not(form).ng-touched {
+  border: 1px solid salmon;
+}
+
+.filter  input {
+  margin-left: 10px;
+}
+
+button {
+  margin-right: 20px;
+}
+
+p.no-changes {
+  margin-bottom: 0.2rem;
+  width: 100%;
+}
+
+#kmInput {
+  text-align: end;
+  padding-right: 40px;
+}
+
+#kmInput > input {
+  width: 60px;
+}
+
+.btn.action {
+  padding: 2px 7px;
+  margin-right: 15px;
+  font-weight: 600;
+}
+
+#checkbox {
+  margin-left: 5px;
+}
+
+tfoot {
+  font-weight: 600;
+}
+
+
+/*
 p,
 input:not(.date_input) {
   display: inline-block;
@@ -14,3 +80,4 @@ input.date_input {
 tr:nth-last-child(2) {
   border: 1px black;
 }
+*/
