@@ -1,5 +1,5 @@
 <form #newArrival="ngForm" class="newArrival">
-  <h5>Add new Plane:</h5>
+  <h5>Add new Arrival:</h5>
   <p
     *ngIf="newArrival.invalid && newArrival.submitted"
     class="alert alert-danger"
@@ -46,11 +46,12 @@
     Arrival time:
     <input
       type="datetime-local"
-      min={{minToday}}
       [(ngModel)]="today"
       name="arrival_time"
       required
     />
+<!-- min={{minToday}} -->
+
   </div>
 
   <button type="submit" (click)="addArrival()" class="btn btn-success">
@@ -98,7 +99,7 @@
       <td>{{item.id}}</td>
       <td>{{item.from_town}}</td>
       <td>{{item.airline}}</td>
-      <td>{{item.arrival_time | time: 'T'}}<br><input type="datetime-local" #dateInput="ngModel" name="arrival_time" id="arrival_time" [(ngModel)]="item.arrival_time" min={{minToday}}></td>
+      <td>{{item.arrival_time | time: 'T'}}<br><input type="datetime-local" #dateInput="ngModel" name="arrival_time" id="arrival_time" [(ngModel)]="item.arrival_time" ></td>
       <td>{{item.is_late ? "Late" : "In time"}}<input type="checkbox" #checkInput="ngModel" [(ngModel)]="item.is_late" id="checkbox"/></td>
       <td>
         <button (click)="onUpdate(item)" class="btn btn-outline-success action">Update</button>
@@ -120,6 +121,9 @@
 <ng-template #noArrivalsWarning>
   <p *ngIf="dataLoaded" class="alert alert-warning">Sorry, no flights - no data!</p>
 </ng-template>
+
+
+<!-- min={{minToday}} -->
 
 
 
