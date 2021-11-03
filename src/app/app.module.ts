@@ -7,18 +7,18 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './components/app/app.component';
 import { ArrivalsComponent } from './components/arrivals/arrivals.component';
 import { HeaderComponent } from './components/header/header.component';
-import { ArrivalComponent } from './components/arrival/arrival.component';
 import { TimePipe } from './pipes/time.pipe';
 import { DeparturesComponent } from './components/departures/departures.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ArrivalsComponent,
     HeaderComponent,
-    ArrivalComponent,
     TimePipe,
-    DeparturesComponent
+    DeparturesComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +26,8 @@ import { DeparturesComponent } from './components/departures/departures.componen
     HttpClientModule,
     RouterModule.forRoot([
       { path: 'arrivals', component: ArrivalsComponent },
+      { path: 'departures', component: DeparturesComponent },
+      { path: '', component: HomeComponent },
       { path: '**', redirectTo: '', pathMatch: 'full' },
     ]),
   ],

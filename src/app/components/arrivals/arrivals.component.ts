@@ -114,7 +114,7 @@ export class ArrivalsComponent implements OnInit {
 
   onUpdate(arrival: IRecord): void {
     console.log(arrival.arrival_time);
-    arrival.arrival_time = arrival.arrival_time.slice(0,16);
+    // arrival.arrival_time = arrival.arrival_time.slice(0,16);
     this._arrivalsService.updateArrival(arrival).subscribe(
       (res) => {
         alert(

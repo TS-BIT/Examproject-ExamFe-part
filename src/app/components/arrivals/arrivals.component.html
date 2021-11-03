@@ -99,7 +99,7 @@
       <td>{{item.id}}</td>
       <td>{{item.from_town}}</td>
       <td>{{item.airline}}</td>
-      <td>{{item.arrival_time | time: 'T'}}<br><input type="datetime-local" #dateInput="ngModel" name="arrival_time" id="arrival_time" [(ngModel)]="item.arrival_time" ></td>
+      <td>{{item.arrival_time | time: 'T'}}<br><input type="datetime-local" #dateInput="ngModel" name="arrival_time" id="arrival_time" [(ngModel)]="item.arrival_time"></td>
       <td>{{item.is_late ? "Late" : "In time"}}<input type="checkbox" #checkInput="ngModel" [(ngModel)]="item.is_late" id="checkbox"/></td>
       <td>
         <button (click)="onUpdate(item)" class="btn btn-outline-success action">Update</button>
